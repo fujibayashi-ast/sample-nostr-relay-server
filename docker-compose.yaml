@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  nostr-relay-sample:
+    container_name: nostr-relay-sample
+    image: scsibug/nostr-rs-relay:latest
+    ports:
+      - 8080:8080
+    volumes:
+      - type: bind
+        source: ./config.toml
+        target: /usr/src/app/config.toml
