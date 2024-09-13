@@ -49,6 +49,7 @@ WORKDIR ${APP}
 ENV RUST_LOG=info,nostr_rs_relay=info
 ENV APP_DATA=${APP_DATA}
 
-COPY config.toml /usr/src/app/config.toml
+# config.tomlを変更する場合
+# COPY config.toml /usr/src/app/config.toml
 
 CMD ./nostr-rs-relay --db ${APP_DATA}
