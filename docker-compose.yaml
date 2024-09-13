@@ -2,11 +2,14 @@ version: "3.8"
 
 services:
   nostr-relay-sample:
-    container_name: nostr-relay-sample
+    container_name: relay
+    # 公式イメージを利用
     image: scsibug/nostr-rs-relay:latest
+    # ソースコードを利用
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
     ports:
       - 8080:8080
     volumes:
-      - type: bind
-        source: ./config.toml
-        target: /usr/src/app/config.toml
+      - ./config.toml:/usr/src/app/config.toml
